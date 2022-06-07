@@ -28,6 +28,6 @@ public class OfferController {
     @GetMapping(value = "/{offerId}")
     public Offer getOfferById(@PathVariable Integer offerId) {
         Objects.requireNonNull(offerId);
-        return service.getOfferById(offerId);
+        return service.findOfferById(offerId);
     }
 }

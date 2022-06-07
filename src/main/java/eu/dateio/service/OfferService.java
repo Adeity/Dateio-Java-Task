@@ -6,7 +6,6 @@ import eu.dateio.model.Offer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -23,7 +22,7 @@ public class OfferService {
      * @param offerId - id of offer
      * @return offer with offerId
      */
-    public Offer getOfferById(Integer offerId) {
+    public Offer findOfferById(Integer offerId) {
         Optional<Offer> optOffer = dao.findById(offerId);
         if (optOffer.isPresent()) {
             return optOffer.get();

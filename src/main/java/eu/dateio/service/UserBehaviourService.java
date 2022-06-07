@@ -33,7 +33,7 @@ public class UserBehaviourService {
     public void processDto(UserBehaviourDto dto) {
         isDtoValid(dto);
         Client client = clientService.findClientById(dto.getClientId());
-        Offer offer = offerService.getOfferById(dto.getOfferId());
+        Offer offer = offerService.findOfferById(dto.getOfferId());
         if (client == null || offer == null) {
             throw new InvalidDtoException("Invalid user behaviour DTO");
         }
