@@ -1,0 +1,19 @@
+#version: '1'
+services:
+  dateio-task:
+    image: dateio-task:1.0
+    depends_on:
+      - dateio-postgres
+    ports:
+      - 8080:8080
+  dateio-postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - dateio-data:/var/lib/postgresql/data
+volumes:
+  dateio-data:
+    driver: local
